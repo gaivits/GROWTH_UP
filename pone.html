@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <title>Problem One</title>
+    <style>
+       
+      .input{
+          border:none;
+          font-size:10px;
+      }
+      .input:focus{
+          outline:none;
+      }
+    </style>
+ 
+</head>
+<body>
+    <h2 style="text-align:left">สุ่มเลข</h2>
+    <input type="number" id='rows' placeholder="EnterNumber">
+    <input type="hidden" id='cols' placeholder="Enter cols" value=10>
+    <button id='fetch'>submit</button>
+    
+
+    <div id='container'></div>
+    <script type="text/javascript">
+      document.getElementById('fetch').onclick=function()
+      {
+          var rows=document.getElementById('rows').value
+          var cols=document.getElementById('cols').value
+          if(rows=="" || rows==null)
+          rows=10
+          if(cols=="" || cols==null)
+          cols=10
+          var output='<table border="1" class="table">'
+          function createTable(rows,cols)
+          {
+              var cnt = document.getElementById('rows').value
+              cnt = parseInt(cnt)
+              for(var i=1;i<=10;i++)
+                {
+                  output=output+'<tr>'
+                  for(var j=1;j<=10;j++)
+                  {
+
+                      output=output+'<td>'+ cnt++ +'</td>'
+                  }
+                  output=output+'</tr>'
+              }
+              output=output+'</table>'
+              document.getElementById('container').innerHTML=output    
+         }
+         createTable(rows,cols)
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <title>Problem Three</title>
+    <style>
+       
+      .input{
+          border:none;
+          font-size:10px;
+      }
+      .input:focus{
+          outline:none;
+      }
+    </style>
+ 
+</head>
+<body>
+    <h2 style="text-align:left">จับคู่</h2>
+    <input type="text" id='firsts' placeholder="firsts">
+    <input type="text" id='seconds' placeholder="seconds">
+    <button id='fetch'>submit</button>
+    
+
+    <div id='container1'></div>
+    <div id='container2'></div>
+    <script type="text/javascript">
+      document.getElementById('fetch').onclick=function()
+      {
+          var j = 1
+          for(var i=0;i<document.getElementById('firsts').value.length;i++)
+          {
+              document.getElementById('container1').innerHTML+= document.getElementById('firsts').value[i] +document.getElementById('seconds').value[document.getElementById('seconds').value.length-j] +" "
+              j++
+          }
+          
+
+      }
+    </script>
+</body>
+</html>

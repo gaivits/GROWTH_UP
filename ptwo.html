@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <title>Problem two</title>
+    <style>
+       
+      .input{
+          border:none;
+          font-size:10px;
+      }
+      .input:focus{
+          outline:none;
+      }
+    </style>
+ 
+</head>
+<body>
+    <h2 style="text-align:left">จ่าย</h2>
+    <input type="number" id='totals' placeholder="totals">
+    <input type="number" id='pays' placeholder="pays">
+    <button id='fetch'>submit</button>
+    
+
+    <div id='container'></div>
+    
+    <script type="text/javascript">
+      document.getElementById('fetch').onclick=function()
+      {
+          var totals=document.getElementById('totals').value
+          var pays=document.getElementById('pays').value
+          totals = parseInt(totals)
+          pays = parseInt(pays)
+          var output='<p>'
+          if(pays < totals)
+          {
+            alert('คุณมีเงินไม่พอ')
+            return 0
+          }
+          if(pays==totals)
+          {
+            alert('พอดี')
+            return 0
+          }
+          else
+          {
+            var changes = pays-totals
+            changes = parseInt(changes)
+            var b1000 = changes/1000
+            var b500 = (changes%1000)/500
+            var b100 = ((changes%1000)%500/100)
+            var b50 = ((changes%1000)%500%100/50)
+            var b20 = ((changes%1000)%500%100%50/20)
+            var b10 = ((changes%1000)%500%100%50%20/10)
+            var b5 = ((changes%1000)%500%100%50%20%10/5)
+            var b2 = ((changes%1000)%500%100%50%20%10%5/2)
+            var b1 = ((changes%1000)%500%100%50%20%10%5%2/1)
+            output = output + "ธนบัตรฉบับละ 1000 = "+ parseInt(b1000) +'ใบ'+'</p>'+'<br>'
+            output = output + "ธนบัตรฉบับละ 500 = "+ parseInt(b500) + 'ใบ'+'</p>'+'<br>'
+            output = output + "ธนบัตรฉบับละ 100 = "+ parseInt(b100) +'ใบ'+ '</p>'+'<br>'
+            output = output + "ธนบัตรฉบับละ 50 = "+ parseInt(b50) + 'ใบ'+'</p>'+'<br>'
+            output = output + "ธนบัตรฉบับละ 20 = "+ parseInt(b20) +'ใบ'+ '</p>'+'<br>'
+            output = output + "เหรียญ 10 = "+ parseInt(b10) +'เหรียญ'+ '</p>'+'<br>'
+            output = output + "เหรียญ 5 = "+ parseInt(b5) + 'เหรียญ'+'</p>'+'<br>'
+            output = output + "เหรียญ 2 = "+ parseInt(b2) + 'เหรียญ'+'</p>'+'<br>'
+            output = output + "เหรียญ 1 = "+ parseInt(b1) + 'เหรียญ'+'</p>'+'<br>'
+          }
+          document.getElementById('container').innerHTML=output
+        }
+    </script>
+</body>
+</html>
